@@ -1,7 +1,9 @@
 import javax.swing.*;
 
 /**
- * Created by Vortex on 12/14/2020.
+ * This is an unfocused task lister app for fun.
+ * @author Amber Shore
+ * @version 2020.12.14
  */
 public class Main {
 
