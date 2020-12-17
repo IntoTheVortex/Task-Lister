@@ -6,7 +6,7 @@ import java.util.Vector;
 
 /**
  * @author Amber Shore
- * @version 2020.12.14
+ * @version 2020.12.17
  */
 public class TaskListInterface {
     private JPanel rootPanel;
@@ -106,8 +106,17 @@ public class TaskListInterface {
         for(int i = 0; i < tasks.size(); i++) {
             taskList[i] = tasks.elementAt(i);
         }
-        SpinnerModel taskSpinner = new SpinnerListModel(taskList);
-        listSpinner.setModel(taskSpinner);
+        try {
+            SpinnerModel taskSpinner = new SpinnerListModel(taskList);
+            listSpinner.setModel(taskSpinner);
+        }
+        catch (Exception e){
+            String[] emptyList = {" "};
+            SpinnerModel emptySpinner = new SpinnerListModel(emptyList);
+            listSpinner.setModel(emptySpinner);
+        }
+
+
     }
 
     /**
