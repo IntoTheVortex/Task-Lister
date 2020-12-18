@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -18,6 +20,8 @@ public class TaskListInterface {
     private JLabel taskLabel;
     private JButton deleteButton;
     private JLabel spinnerLabel;
+    private JLabel dateLabel;
+    private JLabel timeLabel;
     private final Color purple = new Color(47, 1, 90);
 
     Vector<String> tasks = new Vector<String>();
@@ -33,7 +37,19 @@ public class TaskListInterface {
         rootPanel.setPreferredSize(new Dimension(500,800));
         rootPanel.setBackground(purple);
 
-        //setUpSpinner(); don't do til action, can't use empty list. TODO: Or try catch?
+        //date setup
+        Date today = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("E ',' d '/' M '/' y");
+        dateLabel.setText(dateFormat.format(today));
+        dateLabel.setForeground(Color.WHITE);
+
+        //time setup
+        Date time = new Date();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+        timeLabel.setText(timeFormat.format(time));
+        timeLabel.setForeground(Color.WHITE);
+
+        //setUpSpinner(); don't do til action
         setUpList();
         taskLabel.setForeground(Color.WHITE);
         spinnerLabel.setForeground(Color.WHITE);
